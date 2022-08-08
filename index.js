@@ -81,9 +81,19 @@ class Person {
 */
 
 class Car {
+  constructor(model,milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive(distance){
   
 }
-
+}
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -98,7 +108,14 @@ class Car {
 */
 
 class Lambdasian {
-  
+ constructor(attrs){
+  this.name = attrs.name;
+  this.age = attrs.age;
+  this.location = attrs.location;
+ }
+ speak(){
+  return `Hello my name is ${this.name}, I am from ${this.location}`
+ }
 }
 
 /*
@@ -116,10 +133,22 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor(instAttrs){
+   super(instAttrs)
+   this.specialty = instAttrs.specialty;
+   this.favLanguage = instAttrs.favLanguage;
+   this.catchPhrase = instAttrs.catchPhrase;
+  }
+  demo(subject){
+   return `Today we are learning about ${subject}.`
+  }
+  grade(obj,subject){
+      obj = obj.name;
+    return `${obj} receives a perfect score on ${subject}.`
+  }
 }
-
+ 
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
