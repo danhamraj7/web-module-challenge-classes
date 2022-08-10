@@ -183,12 +183,7 @@ class Student extends Lambdasian {
   sprintChallenge(subject){
       return `${this.name} has begun sprint challenge on ${subject}.`
   }
-  
- 
 }
-
-
-
 
 /*
   TASK 6
@@ -204,8 +199,19 @@ class Student extends Lambdasian {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 
-class ProjectManager {
-   
+class ProjectManager extends Instructor {
+   constructor(proManAttr){
+    super(proManAttr);
+    this.gradClassName = proManAttr.gradClassName;
+    this.favInstructor = proManAttr.favInstructor;
+   }
+   standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`
+   }
+   debugsCode(obj,subject){
+    obj = obj.name;
+   return `${this.name} debugs ${obj}'s code on ${subject}`
+}
 }
 
 /*
